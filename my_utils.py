@@ -5,7 +5,8 @@ import pymysql.cursors
 import requests
 
 dsn = co.makedsn('localhost', 1521, 'xe')
-riot_api_key = 'RGAPI-8ab3bcd6-b408-42a9-b111-8df826c05984'
+riot_api_key = 'RGAPI-ba02ad31-18e8-4da7-9005-8d209ab0420e'
+seoul_api_key = '5478465a5763686a313037546a74786f'
 
 def db_open() :
     global db
@@ -58,16 +59,16 @@ def mysql_execute_dict(query, conn) :
     return result
 
 def df_creater(url) :
-    url = url.replace('(인증키)', seoul_api_key).replace('xml', 'json').replaced('/5/', '1000')
+    global seoul_api_key
+    url = url.replace('(인증키)', seoul_api_key).replace('xml', 'json').replace('/5/', '/1000/')
     res = requests.get(url).json()
     key = list(res.keys())[0]
     data = res[key]['row']
     df = pd.DataFrame(data)
     return df
 
-
-def get_puuid(user):
-    url = f'https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{user}?api_key={riot_api_key}'
+def get_puuid(user_name):
+    url = f'https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{user_name}?api_key={riot_api_key}'
     res = requests.get(url).json()
     puuid = res['puuid']
     return puuid
@@ -88,10 +89,3 @@ def get_master_puuid(user_name) :
     url = f'https://kr.api.riotgames.com/lol/league/v4/masterleagues/by-queue/RANKED_SOLO_5x5?api_key={riot_api_key}'
     res = requests.get(url).json()
     master_list = []
-
-print('test')
-print('test')
-print('git test!')
-print('git test222')
-print('git merge!!!')
-print('git merge!!!!!!')
