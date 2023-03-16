@@ -3,9 +3,10 @@ import pandas as pd
 import cx_Oracle as co
 import pymysql.cursors
 import requests
+import random
 
 dsn = co.makedsn('localhost', 1521, 'xe')
-riot_api_key = 'RGAPI-ba02ad31-18e8-4da7-9005-8d209ab0420e'
+riot_api_key = 'RGAPI-261827c4-6cd0-4e0c-bf65-2a495cad5718'
 seoul_api_key = '5478465a5763686a313037546a74786f'
 
 def db_open() :
@@ -89,3 +90,7 @@ def get_master_puuid(user_name) :
     url = f'https://kr.api.riotgames.com/lol/league/v4/masterleagues/by-queue/RANKED_SOLO_5x5?api_key={riot_api_key}'
     res = requests.get(url).json()
     master_list = []
+
+def rand() :
+    page = random.randrange(1, 10)
+    return page
