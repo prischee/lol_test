@@ -76,7 +76,7 @@ print(row_data['matches'].keys())
 
 # 원시 데이터인 df 넣어서 ouput, match, timeline 데이터가 있는 df를 만들기
 #['gameId','gameDuration','gameVersion','summonerName','summonerLevel','participantId','championName', 'champExperience','teamPosition','teamId','win','kills','deaths','assists', 'totalDamageDealtToChampions','totalDamageTaken']
-#timeline_df [,'g5','g6' ~ 'g25'] => 25분까지 안 가는 게임 0으로 넣기
+#timeline_df ['g5','g6' ~ 'g25'] => 25분까지 안 가는 게임 0으로 넣기
 # pk 값 - (match_id, participantId)
 # def get_match_timeline_df(df) :
 #     df_creator = []
