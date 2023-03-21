@@ -7,7 +7,8 @@ import cx_Oracle as co
 import pymysql.cursors
 
 dsn = co.makedsn('localhost', 1521, 'xe')
-riot_api_key = 'RGAPI-65c33668-88f0-4cf3-ad54-83f88fbdd49a'
+riot_api_key = 'RGAPI-6d6d0479-e484-4970-aacc-2e0f9a628fbd'
+# api_key=RGAPI-6d6d0479-e484-4970-aacc-2e0f9a628fbd
 seoul_api_key = '5478465a5763686a313037546a74786f'
 division_list = ['I', 'II', 'III', 'IV']
 
